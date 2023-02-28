@@ -7,13 +7,6 @@
     list-style: none;
   }
 
-  html, body {
-    height: 100%;
-    width: 90vw;
-    max-width: 1440px;
-
-  }
-
   body {
     line-height: 1.5rem;
     -webkit-font-smoothing: antialiased;
