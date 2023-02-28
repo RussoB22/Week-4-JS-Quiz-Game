@@ -1,0 +1,40 @@
+:root {
+    --text-color: white;
+    --sub-color: black;
+    --main-color: silver;
+    --sub-color: cyan;
+    --background-color: grey;
+    --menu-color: white;
+    scroll-behavior: smooth;
+    font-size: 1.15rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    width: 90vw;
+    max-width: 2560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+
+}
+
+.headerImg {
+    height:20vh;
+    width: 100vw;
+    background-image: url(./Assets/headerImg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header h1 {
+    color: var(--text-color);
+    text-align: center;
+    line-height: 13rem;
+}
