@@ -38,3 +38,30 @@ body {
     text-align: center;
     line-height: 13rem;
 }
+
+#startCard {
+
+}
+
+#quizCard, #resultCard, #leaderboard {
+    /* Change to display None */
+    display: block;
+    background-color: var(--background-color);
+    border-radius: 2rem;
+    padding: 1rem;
+        
+}
+
+#question, #choices {
+    color: var(--text-color);
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+#resultCard {
+
+}
+
+#leaderBoard {
+
+}
