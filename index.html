@@ -14,6 +14,7 @@
     <div class="headerImg">
     <h1>Russo's JS Cram Quiz 2000</h1>
     <div id="startCountDown"></div>
+    <button id="leaderBoardButton">Leaderboard</button>
     </div>
   </header>
   <main>
@@ -42,16 +43,14 @@
     <p>Here are your results:<span id="score"></span></p>
     <form id="gameScore">
       <input type="text" id="gameScoreName" placeholder="Kimi no na wa">
-      <button id="gameScoreSubmit">Submit</button>
+      <button id="gameScoreSubmit" type="submit" >Submit</button>
     </form>
 
 
   </section>
   <section id="leaderBoard">
     <p>Leaderboard</p>
-    <ul id="leaders">
-      <li id="leaderList"></li>
-    </ul>
+    <ul id="leaders"></ul>
 
   </section>
   </main>
