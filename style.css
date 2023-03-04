@@ -2,7 +2,6 @@
     --text-color: white;
     --sub-color: black;
     --main-color: silver;
-    --sub-color: cyan;
     --background-color: grey;
     --menu-color: white;
     scroll-behavior: smooth;
@@ -39,6 +38,19 @@ body {
     line-height: 13rem;
 }
 
+#startCountDown {
+position: absolute;
+left: 50%;
+top: 15%;
+transform: translate(-50%);
+background-color: var(--main-color);
+text-align: center;
+padding: 1ch;
+border-radius: 1ch;
+transition: ease-in-out 150ms;
+
+}
+
 #startCard {
 
 }
@@ -52,10 +64,17 @@ body {
         
 }
 
-#question, #choices {
-    color: var(--text-color);
-    margin-left: 5vw;
-    margin-right: 5vw;
+#question, #choices li {
+    color: var(--sub-color);
+    background-color: var(--menu-color);
+    border-radius: 1ch;
+    padding: 1ch;
+    margin: 1ch;
+}
+
+#choices li {
+    width: 33%;
+
 }
 
 #resultCard {
@@ -63,5 +82,24 @@ body {
 }
 
 #leaderBoard {
+    position: fixed;
+    /* change to Block to see */
+    display: none;
+    left: 50%;
+    top: 50%;
+    width: 40vw;
+    height: 50vh;
+    border-radius: 1ch;
+    background-color: var(--menu-color);
+    box-shadow: 0px 0px 25px var(--main-color);
+    transform: translate(-50%, -50%);
+}
+
+#leaderBoard p {
+    margin-top: 2ch;
+    text-align: center;
+
+
+    z-index: 100;
 
 }
