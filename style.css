@@ -101,7 +101,7 @@ transition: ease-in-out 150ms;
 #leaderBoard {
     position: fixed;
     /* change to Block to see */
-    display: block;
+    display: none;
     left: 50%;
     top: 50%;
     width: 40vw;
@@ -122,8 +122,9 @@ transition: ease-in-out 150ms;
 
 #leaderBoardButton {
     position: absolute;
+    display: block;
     top: 8vh;
     right: 10vw;
-    border-radius: 2ch;
-    padding: 1ch;
+    /* border-radius: 2ch;
+    padding: 1ch; */
 }

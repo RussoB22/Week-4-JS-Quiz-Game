@@ -16,8 +16,11 @@ var leaderBoard = document.getElementById("leaderBoard")
 var highscoreFormEl = document.getElementById("gameScore")
 var highscoreListEl = document.getElementById("leaders")
 var highscorer = document.getElementById("gameScoreName").value
+console.log(highscorer)
 var currentInterval
 var randomQuizQuestion
+var randomQuestion;
+var answers = [];
 var currentScore = 0
 
 // ountdown Clock Logic
@@ -120,7 +123,7 @@ var questions = [
             isCorrect:false}] 
     },
     {
-        question: "Where is the Mascot of Russia's 2nd top national sport living?",
+        question: "Where is the Mascot of Russia's 2nd top national team living?",
         choices: [
             {choice: "Moscow", 
             isCorrect:true},
@@ -137,96 +140,133 @@ var questions = [
 
 // Questions Logic
 
-function shuffle(arr) {
-    arr.sort(() => Math.random() - 0.5);
+// function shuffle(arr) {
+//     arr.sort(() => Math.random() - 0.5);
+// }
+
+// function questionShuffle() {
+//     shuffle(questions);
+//     for (var i = 0; i < questions.length; i++) {
+//       shuffle(questions[i].choices);
+//     }
+//   }
+
+// questionShuffle();
+
+function Question(question,rightAnswer,wrongAnswer1,wrongAnswer2,wrongAnswer3,wrongAnswer4) {
+    this.question = question;
+    this.rightAnswer = rightAnswer;
+    this.wrongAnswer1 = wrongAnswer1;
+    this.wrongAnswer2 = wrongAnswer2;
+    this.wrongAnswer2 = wrongAnswer3;
+    this.wrongAnswer2 = wrongAnswer4;
+};
+
+function btnProvideQuestion() { 
+  
+	var randomNumber = Math.floor(Math.random()*questions.length);
+	randomQuestion = questions[randomNumber]; //getQuestion
+  answers = [randomQuestion.rightAnswer, randomQuestion.wrongAnswer1, randomQuestion.wrongAnswer2, randomQuestion.wrongAnswer3, randomQuestion.wrongAnswer4];
+  shuffle(answers);
+  
+  document.getElementById("question").innerHTML= randomQuestion.question;
+  document.getElementById("choice0").value= answers[0];
+  document.getElementById("choice0").innerHTML= answers[0];
+  document.getElementById("choice1").value= answers[1];
+  document.getElementById("choice1").innerHTML= answers[1];
+  document.getElementById("choice2").value= answers[2];
+  document.getElementById("choice2").innerHTML= answers[2];
+  document.getElementById("choice3").value= answers[3];
+  document.getElementById("choice3").innerHTML= answers[3];
+  document.getElementById("choice4").value= answers[4];
+  document.getElementById("choice4").innerHTML= answers[4];
+
 }
 
-function questionShuffle() {
-    shuffle(questions);    
+function choice0_clicked() {
+    var choice0 = document.getElementById("choice0").value;
+  	checkAnswer(choice0);
 }
 
-questionShuffle();
+function choice1_clicked() {
+    var choice1 = document.getElementById("choice1").value;
+    checkAnswer(choice1);
+}
+
+function choice2_clicked() {
+    var choice2 = document.getElementById("choice2").value;
+  	checkAnswer(choice2);
+}
+
+function choice3_clicked() {
+    var choice3 = document.getElementById("choice3").value;
+  	checkAnswer(choice3);
+}
+
+function choice4_clicked() {
+    var choice4 = document.getElementById("choice4").value;
+  	checkAnswer(choice4);
+}
+
+function adjustScore(isCorrect) {
+  debugger;
+  if (isCorrect) {
+    currentScore++;
+  } else {
+     {
+      currentInterval/2;
+  	}
+  }
+  document.getElementById("score").innerHTML = currentScore;
+}
+
+function checkAnswer(answer) {  
+  if (answer == randomQuestion.rightAnswer) {
+    adjustScore(true);
+    btnProvideQuestion();
+  } else { 
+    alert("Loser!");
+    adjustScore(false);
+  }	  
+}
+
 
 console.log(questions)
 console.log(questions[0])
 
-choice0.textContent = questions[0].choices[0].choice;
-choice0.classList.add("correct");
-choice0.onclick = function() {
+// choice0.textContent = questions[0].choices[0].choice;
+// choice0.addEventListener('click', selectChoice)
+
+// function selectChoice() {
+//     if (correct) {
+//         currentScore++;
+//     } else { 
+//         currentInterval/2;
+//     } 
     
-}
-
-choices.addEventListener('click', nextQuestion)
-
-function nextQuestion() {
-    i++;
-
-
-}
+// }
 
 // Highscore Form
 
 function handleFormSubmit(event) {
     event.preventDefault();
-
-    var highscoreLeader = highscorer; 
+  
     var highscoreListItemEl = document.createElement('li');
-    var deleteButtonEl = document.createElement('button');
-
-    if (!highscoreLeader) {
-      console.log('Type in a Name.');
-      return;
-    }
-
-    highscoreListItemEl.text(highscoreLeader);
+    var highscorer = document.querySelector('input[id="gameScoreName"]').value;
   
-    // add delete button to remove shopping list item
-    highscoreListItemEl.appendChild(deleteButtonEl);
-  
+    highscoreListItemEl.textContent = highscorer + " " + currentScore;
+    
     // print to the page
-    highscoreListEl.append(highscoreListItemEl);
-  
+    highscoreListEl.appendChild(highscoreListItemEl);
+    
     // clear the form input element
     document.querySelector('input[id="gameScoreName"]').value = '';
-
-    var highscoreForm = highscoreFormEl;
-        highscoreForm.addEventListener('submit', handleFormSubmit);
-
   }
-
-// v2
-
-// function handleFormSubmit(event) {
-//     event.preventDefault();
   
-//     var highscoreLeader = document.querySelector('input[id="gameScoreName"]').value;
-//     var highscoreListItemEl = document.createElement('li');
-//     var deleteButtonEl = document.createElement('button');
-  
-//     if (!highscoreLeader) {
-//       console.log('Type in a Name.');
-//       return;
-//     }
-  
-//     highscoreListItemEl.textContent = highscoreLeader;
-  
-//     // add delete button to remove highscore list item
-//     deleteButtonEl.className = 'btn btn-danger btn-small delete-item-btn';
-//     deleteButtonEl.textContent = 'Remove';
-//     highscoreListItemEl.appendChild(deleteButtonEl);
-  
-//     // print to the page
-//     var highscoreListEl = document.querySelector('#highscore-list');
-//     highscoreListEl.appendChild(highscoreListItemEl);
-  
-//     // clear the form input element
-//     document.querySelector('input[id="gameScoreName"]').value = '';
-//   }
-  
-//   var highscoreFormEl = document.querySelector('#highscore-form');
-//   highscoreFormEl.addEventListener('submit', handleFormSubmit);
+  highscoreFormEl.addEventListener('submit', handleFormSubmit);
 
 // Leaderboard
+
 
 leaderButton.addEventListener('click', showLeaders);
 
@@ -242,3 +282,4 @@ function hideLeaders() {
     leaderBoard.style.display = "none";
     leaderButton.style.display = "block";
 }
+
