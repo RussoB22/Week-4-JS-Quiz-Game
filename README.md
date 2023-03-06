@@ -8,6 +8,8 @@ To help familiarize you with these tests and allow you to use the skills covered
 
 This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
+Deployed Site Link: https://russob22.github.io/Week-4-JS-Quiz-Game/
+
 ## User Story
 
 ```
@@ -97,3 +99,5 @@ You are required to submit BOTH of the following for review:
 ---
 
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+![russob22 github io_Week-4-JS-Quiz-Game_](https://user-images.githubusercontent.com/123154529/223215566-6ac3571e-88de-4681-95b8-be20127d1e4e.png)
