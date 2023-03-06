@@ -166,11 +166,11 @@ function answerC_clicked() {
     checkAnswer(answerC);
 }
 function answerD_clicked() {
-    var answerC = document.getElementById("answerD").value;
+    var answerD = document.getElementById("answerD").value;
     checkAnswer(answerD);
 }
 function answerE_clicked() {
-    var answerC = document.getElementById("answerE").value;
+    var answerE = document.getElementById("answerE").value;
     checkAnswer(answerE);
 }
 
