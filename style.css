@@ -1,7 +1,7 @@
 :root {
     --text-color: white;
     --sub-color: black;
-    --main-color: silver;
+    --main-color: orange;
     --background-color: grey;
     --menu-color: white;
     scroll-behavior: smooth;
@@ -33,9 +33,23 @@ body {
 }
 
 .header h1 {
-    color: var(--text-color);
+    color: var(--main-color);
     text-align: center;
     line-height: 13rem;
+}
+
+h2 {
+    padding: 1rem;
+}
+
+#startCard p {
+    padding: 1rem;
+}
+
+#startCard button {
+   left: 50%;
+   position: relative;
+   transform: translate(-50%, 0%);
 }
 
 #startCountDown {
@@ -51,31 +65,57 @@ transition: ease-in-out 150ms;
 
 }
 
-#startCard {
-
+button, #leaderBoard {
+    cursor: pointer;
+    background-color: var(--main-color);
+    padding: 1ch;
+    border-radius: 1ch;
+    border: 0 solid white;
+    transition: ease-in-out 150ms;
 }
 
-#startCard, #quizCard, #resultCard, #leaderboard {
+button:hover, #leaderBoard:hover {
+    scale: 1.025;
+    filter:brightness(110%);
+    
+}
+
+#startCard, #quizCard, #resultCard, #leaderBoard {
     /* Change to display None */
-    display: block;
-    background-color: var(--background-color);
+    display: none;
+    background-color: var(--menu-color);
     border-radius: 2rem;
     padding: 1rem;
     height: 50vh;
         
 }
 
-#question, #choices li {
+#choices li {
     color: var(--sub-color);
-    background-color: var(--menu-color);
+    background-color: var(--main-color);
     border-radius: 1ch;
     padding: 1ch;
-    margin: 1ch;
+    margin: 2ch;
 }
 
-#choices li {
-    width: 33%;
+#quizCard button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
+}
+
+#question {
+    color: var(--sub-color);
+    background-color: var(--main-color);
+    border-radius: 1ch;
+    padding: 2ch;
+    margin-top: 2ch;
+    margin-bottom: 2ch;
+    text-align: center;
+}
+
+.flex .field {
+    border: 0.125rem solid --sub-color;
 }
 
 #resultCard {
@@ -89,14 +129,15 @@ transition: ease-in-out 150ms;
 
 }
 
+#resultCard form, #resultCard p  {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 #resultCard p {
-    padding: 1ch;
+    top: 45%;
 }
-
-#resultCard form {
-    padding-left: 1ch;
-}
-
 
 #leaderBoard {
     position: fixed;
@@ -108,23 +149,30 @@ transition: ease-in-out 150ms;
     height: 50vh;
     border-radius: 1ch;
     background-color: var(--menu-color);
-    box-shadow: 0px 0px 25px var(--main-color);
+    box-shadow: 0px 0px 25px var(--sub-color);
     transform: translate(-50%, -50%);
 }
 
-#leaderBoard p {
+#leaderBoard p, #leaderBoard li {
     margin-top: 2ch;
     text-align: center;
-
+    font-size: 2rem;
+    font-weight: 500;
     z-index: 100;
 
 }
 
+#leaderBoard li {
+    font-size: 1.5rem;
+    font-weight: 250;
+}
+
 #leaderBoardButton {
-    position: absolute;
+    position: relative;
     display: block;
-    top: 8vh;
-    right: 10vw;
-    /* border-radius: 2ch;
-    padding: 1ch; */
+    background-color: var(--main-color);
+    top: -20%;
+    left: 80%;
+    border-radius: 2ch;
+    padding: 1ch;
 }
