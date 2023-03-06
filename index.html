@@ -20,30 +20,47 @@
   <main>
   <section id="startCard">
     <h2>Boing Instructions</h2>
-    <p>The Russo's™ JS Cram Quiz 2000 is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 10 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.
+    <p>The Russo's™ JS Cram Quiz 2000 is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 10 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start. Please note each incorrect answer will subtract a point, please read carefully.
     </p>
     <button id="startButton">Too long didn't read</button>
 
     </section>
   <section id="quizCard">
-    <p id="question"></p>
-    <ul id="choices">
-      <li class="choice" id="choice0" onclick="choice0_clicked()"></li>
-      <li class="choice" id="choice1" onclick="choice1_clicked()"></li>
-      <li class="choice" id="choice2" onclick="choice2_clicked()"></li>
-      <li class="choice" id="choice3" onclick="choice3_clicked()"></li>
-      <li class="choice" id="choice4" onclick="choice4_clicked()"></li>
-    </ul>
+    <div class="flex">
+      <div class="field"></div>
+      <div id="question" class="field"></div>
+    </div>
+    <div class="flex">
+      <div class="field"></div>
+      <button id="answerA" onclick="answerA_clicked()"></button>
+    </div>
+    <div class="flex">
+      <div class="field"></div>
+      <button id="answerB" onclick="answerB_clicked()"></button>
+    </div>
+    <div class="flex">
+      <div class="field"></div>
+      <button id="answerC" onclick="answerC_clicked()"></button>
+    </div>
+    <div class="flex">
+      <div class="field"></div>
+      <button id="answerD" onclick="answerD_clicked()"></button>
+    </div> 
+    <div class="flex">
+      <div class="field"></div>
+      <button id="answerE" onclick="answerE_clicked()"></button>
+    </div>     
     <div id="quizCountDown"></div>
   </section>
 
 
   <section id="resultCard">
     <h2>Congrats on completing Russo's™ JS Cram Quiz 2000</h2>
-    <p>Here are your results:<span id="score"></span></p>
+    <p>Here are your results: <span id="score"></span></p>
     <form id="gameScore">
       <input type="text" id="gameScoreName" placeholder="Kimi no na wa">
       <button id="gameScoreSubmit" type="submit" >Submit</button>
+      <button id="reset">Reset Quiz</button>
     </form>
 
 
