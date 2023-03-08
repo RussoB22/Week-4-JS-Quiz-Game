@@ -22,7 +22,7 @@ var penaltyCount = 0
 
 function startCountDown() {
     var timeLeft = 30;
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         timerEl.textContent = timeLeft + " seconds till quiz starts.";
             startCard.style.display = "block";
         if (timeLeft <= 0) {
@@ -39,7 +39,7 @@ function startCountDown() {
 function quizCountDown() {
     // Change to 60
     var timeLeft = 60 - penaltyCount * 10;
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         timerEl.textContent = timeLeft + " seconds till emotional damage.";
  
         if(timeLeft <= 0) {
@@ -106,8 +106,12 @@ quiz[6] = new Question("Which is not a Javascript Array method?",
     "Pop remove the last element in an Array.",
     "Shift remove the first element in an Array.",
     "Unshift adds elements to the front of an Array");
-
-var quizBack = quiz
+quiz[7] = new Question("What is JSON?",
+    "A lightweight data interchange format",
+    "A lightweight data intrachange format",
+    "a lite data intrachange format",
+    "a lite data interchange formatting code",
+    "a lite data intrachange formatting code");
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   btnProvideQuestion();
@@ -137,6 +141,8 @@ function btnProvideQuestion() {
   if (quiz.length < 1) {
     quizCard.style.display = "none";
     results.style.display = "block";
+    timerEl.style.display = "none";
+
   }
   
   document.getElementById("question").innerHTML= randomQuestion.question;
